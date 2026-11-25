@@ -37,14 +37,6 @@ which clang make ldid dpkg-deb
 
 卸载：Sileo 里卸载 `NoChevron`，respring 即可恢复。
 
-## 如果没生效
-
-本插件的定位依据是反汇编结论（`_headerChevronView` 是
-`CCUIHeaderPocketView` 的私有子视图、由 CC18 搬到 y=23 露出）。
-
-- 若 `valueForKey:@"_headerChevronView"` 拿不到，会退化为按类名包含
-  `chevron` 的子视图查找。
-
 ## 构建两种架构（同一份源码）
 
 ```bash
