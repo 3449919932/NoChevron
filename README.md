@@ -1,6 +1,6 @@
 # NoChevron 1.0 — 独立「去拉手」插件（Theos 工程）
 
-目标：在**不修改 ControlCenter18** 的前提下，把控制中心顶部的「拉手」（chevron）隐藏掉。
+目标：把控制中心顶部的「拉手」（chevron）隐藏掉。
 做法：独立 dylib 注入 SpringBoard，hook 私有类 `CCUIHeaderPocketView` 的
 `-layoutSubviews` / `-didMoveToWindow`，在其 hook 链跑完后把 `_headerChevronView`
 设为 `hidden=YES`、`alpha=0`。
@@ -32,10 +32,8 @@ which clang make ldid dpkg-deb
 
 ## 安装 / 卸载
 
-1. 先把上一版**整合包**卸掉（`ControlCenter18_1.0-beta-fix1_iphoneos-arm64.deb`），
-   把 ControlCenter18 装回**原版**（1.0-beta 或 3.0-beta 都行）。
-2. 用 Sileo 打开本插件 deb 安装，respring（或 `killall -9 SpringBoard`）。
-3. 锁屏下拉控制中心，顶部箭头应消失。
+1. 用 Sileo 打开本插件 deb 安装，respring（或 `killall -9 SpringBoard`）。
+2. 锁屏下拉控制中心，顶部箭头应消失。
 
 卸载：Sileo 里卸载 `NoChevron`，respring 即可恢复。
 
@@ -46,8 +44,6 @@ which clang make ldid dpkg-deb
 
 - 若 `valueForKey:@"_headerChevronView"` 拿不到，会退化为按类名包含
   `chevron` 的子视图查找。
-- 如果你的 CC18 版本改了视图层级（例如 3.x 重写了这块），把 CC18 的版本号和
-  dylib 发我，我按同样方法重新定位（这次是独立插件，只改我们自己的 Tweak.x）。
 
 ## 构建两种架构（同一份源码）
 
