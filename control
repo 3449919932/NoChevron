@@ -1,6 +1,6 @@
 Package: com.dafeiyu.nochevron
 Name: NoChevron
-Version: 1.0-2
+Version: 1.0-3
 Architecture: iphoneos-arm64
 Description: 独立插件，隐藏控制中心顶部的「拉手」(chevron)
 Maintainer: 大飞鱼
